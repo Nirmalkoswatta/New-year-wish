@@ -75,6 +75,17 @@ function App() {
     [],
   )
 
+  const confettiPieces = useMemo(() => {
+    const symbols = ['✨', '🎉', '🥂', '🌟', '💫']
+    return Array.from({ length: 28 }, (_, index) => ({
+      id: index,
+      symbol: symbols[index % symbols.length],
+      left: Math.random() * 100,
+      duration: 6 + Math.random() * 6,
+      delay: Math.random() * 4,
+    }))
+  }, [])
+
   return (
     <div className="scene">
       <div className="scene-gradient" aria-hidden="true" />
@@ -92,6 +103,22 @@ function App() {
               animationDelay: `${particle.delay}s`,
             }}
           />
+        ))}
+      </div>
+
+      <div className="confetti-layer" aria-hidden="true">
+        {confettiPieces.map((piece) => (
+          <span
+            key={piece.id}
+            className="confetti-piece"
+            style={{
+              left: `${piece.left}%`,
+              animationDuration: `${piece.duration}s`,
+              animationDelay: `${piece.delay}s`,
+            }}
+          >
+            {piece.symbol}
+          </span>
         ))}
       </div>
 
