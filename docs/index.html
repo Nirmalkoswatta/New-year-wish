@@ -5,6 +5,20 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>new-year-wish</title>
+    <script>
+      (() => {
+        const { search, hash } = window.location
+        if (search.startsWith('?') && search.includes('%2F')) {
+          const decodedPath = decodeURIComponent(search.slice(1).replace(/&.*/, ''))
+          const cleanedQuery = search.slice(1).split('&').filter(Boolean).map((segment) => segment.replace(/~and~/g, '&'))
+          window.history.replaceState(null, null, decodedPath + (cleanedQuery.length > 1 ? `?${cleanedQuery.slice(1).join('&')}` : '') + hash)
+        }
+        if (search.startsWith('?/') && search.length > 2) {
+          const rewritten = search.slice(1).split('&').map((segment) => segment.replace(/~and~/g, '&')).join('?')
+          window.history.replaceState(null, null, rewritten + hash)
+        }
+      })()
+    </script>
     <script type="module" crossorigin src="./assets/index-DnyEZeT1.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-DDHGOAoM.css">
   </head>
