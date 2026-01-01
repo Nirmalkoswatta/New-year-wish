@@ -1,16 +1,28 @@
-# React + Vite
+# New Year Wish 2026
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Deploy to GitHub Pages](https://github.com/Nirmalkoswatta/New-year-wish/actions/workflows/deploy.yml/badge.svg)](https://github.com/Nirmalkoswatta/New-year-wish/actions/workflows/deploy.yml)
 
-Currently, two official plugins are available:
+A luminous New Year greeting built with React, Framer Motion, and Vite. The site opens with a gentle loading experience, transitions into a celebratory hero message, and closes with a warm family blessing.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Preview
 
-## React Compiler
+The published site is available at https://nirmalkoswatta.github.io/New-year-wish/
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## Local Development
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Production Build
+
+```bash
+npm run build
+```
+
+The build command emits the static site to the `docs` directory so GitHub Pages can serve it.
+
+## Deployment
+
+Every push to `main` triggers the [Deploy to GitHub Pages workflow](https://github.com/Nirmalkoswatta/New-year-wish/actions/workflows/deploy.yml). The workflow runs `npm run build` with GitHub Pages configuration and publishes the contents of `docs` via `actions/deploy-pages`.
